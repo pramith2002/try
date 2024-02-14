@@ -1,21 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Order Preview</title>
 </head>
-<body>
-    <p id="content">Hello</p>
-    <button>Toast</button>
-</body>
-<script>
-function showToast() {
-  var content = document.getElementById("content").innerHTML;
-  Android.showToast(content);
-}
 
-document.querySelector("button").addEventListener("click", showToast);
-</script>
+<body>
+
+    <main id="previewItems">
+        <div class="items">
+            <div class="itemsWrapper">
+                <p class="itemNames">Pizza</p>
+                <p class="itemPrices">$99.10</p>
+            </div>
+            <span>x <b>1</b></span>
+            <b class="itemTotalPrice">99.10 Rs.</b>
+        </div>
+        <div class="items">
+            <div class="itemsWrapper">
+                <p class="itemNames">Burger</p>
+                <p class="itemPrices">$199.10</p>
+            </div>
+            <span>x <b>2</b></span>
+            <b class="itemTotalPrice">$398.20 Rs.</b>
+        </div>
+        <div class="items">
+            <div class="itemsWrapper">
+                <p class="itemNames">Coke</p>
+                <p class="itemPrices">$9.10</p>
+            </div>
+            <span>x <b>1</b></span>
+            <b class="itemTotalPrice">9.10 Rs.</b>
+        </div>
+    </main>
+
+    <div class="totalContainer">
+        <div class="totalAmountWrapper">
+            <p>Total : <b id="totalAmount">506.40 Rs.</b></p>
+        </div>
+        <div class="nextBtnWrapper">
+            <button id="placeOrderBtn">
+                PLACE ORDER
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("placeOrderBtn").addEventListener("click", function() {
+            var items = document.querySelectorAll(".items");
+            var message = "Order Details:\n";
+
+            items.forEach(function(item, index) {
+                var itemName = item.querySelector(".itemNames").textContent;
+                var itemPrice = item.querySelector(".itemPrices").textContent;
+                var itemQuantity = item.querySelector("b").textContent;
+                var totalPrice = item.querySelector(".itemTotalPrice").textContent;
+
+                message += (index + 1) + ". " + itemName + " - " + itemPrice + " x " + itemQuantity + "\n";
+            });
+
+            var totalAmount = document.getElementById("totalAmount").textContent;
+            message += "Total: " + totalAmount;
+
+            // Call the Android showToast method
+            Android.showToast(message);
+        });
+    </script>
+</body>
 
 </html>
