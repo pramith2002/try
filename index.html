@@ -7,13 +7,15 @@
 </head>
 <body>
     <p id="content">Hello</p>
-    <button onclick="handleButtonClick()">Toast</button>
+    <button>Toast</button>
 </body>
 <script>
-    function handleButtonClick() {
-        let content = document.getElementById("content").textContent;
-        localStorage.setItem("item", content);
-        Android.showToast(content); // Call the showToast method on the Android interface
-    }
+function showToast() {
+  var content = document.getElementById("content").innerHTML;
+  Android.showToast(content);
+}
+
+button.addEventListener("click", showToast);
 </script>
+
 </html>
