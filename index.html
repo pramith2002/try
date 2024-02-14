@@ -7,14 +7,13 @@
 </head>
 <body>
     <p id="content">Hello</p>
-    <button onclick="sendDataToAndroid()">Toast</button>
+    <button onclick="handleButtonClick()">Toast</button>
 </body>
 <script>
-    function sendDataToAndroid() {
+    function handleButtonClick() {
         let content = document.getElementById("content").textContent;
         localStorage.setItem("item", content);
-        // Call the showToast() method in the Android app
-        Android.showToast(content);
+        Android.showToast(content); // Call the showToast method on the Android interface
     }
 </script>
 </html>
