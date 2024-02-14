@@ -6,6 +6,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Preview</title>
 </head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+header{
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 3px 0 rgb(171 169 169 / 30%);
+}
+
+.backBtn{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+header > h1{
+    font-size: 1rem !important;
+    font-weight: 600;
+}
+
+main{
+    height: 84vh;
+    max-height: 84vh;
+    width: 95%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+main::-webkit-scrollbar{
+    visibility: hidden;
+}
+
+.totalContainer{
+    width: 100vw;
+    height: 8vh;
+    position: relative;
+    box-shadow: 2px 0px 3px 0 rgb(171 169 169 / 30%);
+}
+
+.items{
+    min-height: 200px;
+    max-height: 200px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #ccc;
+    align-items: center;
+}
+
+.itemsWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.itemNames{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.itemPrices{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.imageWrapper{
+    width: 120px;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    background-color: #fafafa;
+    border: 1px solid #fafafa;
+    position: relative;
+}
+
+.imageWrapper2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemImage{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    object-fit: contain;
+    object-position: center;
+    margin: 10px;
+}
+
+.itemCountContainer{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    gap: 10px;
+    padding:5px;
+    background-color: #ffdbd7;
+    border: 0.5px solid #ff5b48;
+    border-radius: 10px;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: -20px;
+}
+
+.itemCountContainer2{
+    position: static;
+    left: 0;
+    transform: translate(0,0);
+}
+
+.itemBtns{
+    color: #ff5b48;
+    font-size: 12px !important;
+}
+
+.itemCount{
+    font-weight: bold;
+    color: #ff5b48;
+}
+
+.totalContainer{
+    display: flex;
+    align-items: center;
+}
+
+.totalAmountWrapper{
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.nextBtnWrapper{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#placeOrderBtn{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    background-color: #ff5b48;
+    border-radius: 10px;
+    border: none;
+}
+
+.imageWrapper3{
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
+    background-color: transparent;
+    gap: 5px;
+}
+
+.items > div{
+    flex: 2;
+}
+
+.items > span,
+.items > b{
+    flex: 1;
+}
+
+</style>
 
 <body>
 
